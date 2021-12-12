@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.UI; // <-- remove this... I have used it for set a slider.value
 
 //credits: V.037_
 
