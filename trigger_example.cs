@@ -8,34 +8,19 @@ using UnityEngine.UI; // <-- remove this... I have used it for set a slider.valu
 public class trigger_example : MonoBehaviour
 {
     //use serialize field for don't expose variables to other scripts and improve performance boyz
-    //rember to also set them to private...
-    //Examples:
-    [SerializeField] private Slider slider;
-    [SerializeField] private Animator animator;
+    //rember to also set them to private for make the optimization work...
+    //Example:
+    [SerializeField] private float num = 0;
 
-    private void OnTriggerEnter(Collider collider)
+    private void OnTriggerEnter(Collider collider) //I'm automatically taking your collider :)
     {
-
         //using tags for detect with what this object is colliding, this object should be a trigger
         //If your player have the tag "player", this object will detect when your player is touching it
-        //remember to set the collider to trigger for make that work
+        //remember to set the collider to "trigger" and add a rigidbody to the gameobject for make this script work
         if (collider.tag == "Player")
         {
-            Destroy(GetComponent<Collider>());
-            //here doing stuff with animator
-            animator.SetTrigger("trigger");
-            StartCoroutine(EndAnimation());
+            num += 1; //doing something on collider touch
         }
     }
 
-    private IEnumerator EndAnimation()
-    {
-        //Add some actions before yield return
-        //example:
-        slider.value += 10;
-        //waitforseconds it's delay before do something else
-        yield return new WaitForSeconds(2);
-        //another action here
-        Destroy(this.gameObject);
-    }
 }
