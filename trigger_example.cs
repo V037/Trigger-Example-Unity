@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; // <-- remove this... I have used it for set a slider.value
 
 //credits: V.037_
+
+//place this script in the object who should be touched, like a weapon or a medkit
 
 public class trigger_example : MonoBehaviour
 {
